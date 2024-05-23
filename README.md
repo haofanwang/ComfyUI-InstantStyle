@@ -1,6 +1,6 @@
 # ComfyUI-InstantStyle
 
-Personal implementation of InstantStyle for ComfyUI. For full node support, refer to [here](https://github.com/cubiq/ComfyUI_IPAdapter_plus).
+Personal toy implementation of [InstantStyle](https://github.com/InstantStyle/InstantStyle) for ComfyUI. For complete node support, refer to [here](https://github.com/cubiq/ComfyUI_IPAdapter_plus).
 
 <img src="https://github.com/haofanwang/ComfyUI-InstantStyle/blob/main/example/workflow.png?raw=true" width="100%" height="100%">
 
@@ -27,3 +27,6 @@ huggingface-cli download --resume-download h94/IP-Adapter --local-dir checkpoint
 ```
 
 Then, download any base model and save it as `checkpoints/realvisxlV40_v40Bakedvae.safetensors`.
+
+## Acknowledgement
+This project is highly inspired by [ZHO-ZHO-ZHO](https://github.com/ZHO-ZHO-ZHO).
