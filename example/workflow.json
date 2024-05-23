@@ -1,0 +1,240 @@
+{
+  "last_node_id": 22,
+  "last_link_id": 43,
+  "nodes": [
+    {
+      "id": 22,
+      "type": "BaseModelLoader",
+      "pos": [
+        75,
+        1408
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "pipe",
+          "type": "MODEL",
+          "links": [
+            43
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BaseModelLoader"
+      },
+      "widgets_values": [
+        "checkpoints/realvisxlV40_v40Bakedvae.safetensors"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "InstantStyleLoader",
+      "pos": [
+        518,
+        1407
+      ],
+      "size": {
+        "0": 315,
+        "1": 130
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipe",
+          "type": "MODEL",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            40
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InstantStyleLoader"
+      },
+      "widgets_values": [
+        "checkpoints/IP-Adapter",
+        "sdxl_models",
+        "image_encoder",
+        "ip-adapter_sdxl.bin"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "InstantStyleGenerationNode",
+      "pos": [
+        1076,
+        1406
+      ],
+      "size": {
+        "0": 400,
+        "1": 266
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "style_image",
+          "type": "IMAGE",
+          "link": 39
+        },
+        {
+          "name": "pipe",
+          "type": "MODEL",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            41
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InstantStyleGenerationNode"
+      },
+      "widgets_values": [
+        "a cat",
+        "bad",
+        "style",
+        50,
+        5,
+        698051515731053,
+        "randomize"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "PreviewImage",
+      "pos": [
+        1589,
+        1404
+      ],
+      "size": {
+        "0": 470,
+        "1": 500
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 41
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 6,
+      "type": "LoadImage",
+      "pos": [
+        519,
+        806
+      ],
+      "size": {
+        "0": 380,
+        "1": 500
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            39
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "53e943500dbdea279d1015e87ea1a4b6a1d62ad26ce78823f9c9eb68.jpeg",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      39,
+      6,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      18,
+      0,
+      19,
+      1,
+      "MODEL"
+    ],
+    [
+      41,
+      19,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      22,
+      0,
+      18,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8140274938684051,
+      "offset": {
+        "0": 256.1295816475045,
+        "1": -698.9989426249713
+      }
+    }
+  },
+  "version": 0.4
+}
